@@ -1,7 +1,7 @@
 # schedule_Software_Proj
 Repository for graduate school class advanced software engineering project
 
-[] Work in Progress Presentation 
+- [] Work in Progress Presentation 
     [x] Class Diagram 
     [x] Test cases 
 [] Coding Parts 
