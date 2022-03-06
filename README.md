@@ -2,19 +2,21 @@
 Repository for graduate school class advanced software engineering project
 
 - [] Work in Progress Presentation 
-    - [x] Class Diagram 
-    - [x] Test cases 
+    - [] Class Diagram 
+    - [] Test cases - Dhiraja 
+    - [] UI Dseigns - Lakshmi 
 - [] Coding Parts 
-    - [x] UI Design
-    - [x] FrontEnd 
+    - [] UI Design
+    - [] FrontEnd 
         React JS 
-    - [x] BackEnd 
+    - [] BackEnd 
         Python 
-    - [x] Database 
+    - [] Database - 
 - [] Schedule 
-    - [x] Work in Progress Presentations March 10th 
-    - [x] UI Design March 11th 
-    - [x] Front End March 21st 
-    - [x] Back End April 8th 
-    - [x] Database set up April 8th 
-    - [x] ML Model throughout 
+    - [] Work in Progress Presentations March 10th 
+    - [] UI Design March 11th 
+    - [] Front End March 21st 
+    - [] Back End April 8th 
+    - [] Database set up April 8th - Santosh AWS vs SQL 
+    - [] ML Model throughout - Tom 
+    - [] May 5th complete project due 
