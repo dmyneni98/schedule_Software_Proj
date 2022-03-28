@@ -4,7 +4,7 @@ Repository for graduate school class advanced software engineering project
 - [] Work in Progress Presentation 
     - [] Class Diagram 
     - [] Test cases - Dhiraja 
-    - [] UI Dseigns - Lakshmi 
+    - [] UI Dseigns - Lakshmi & Sudesh
 - [] Coding Parts 
     - [] UI Design
     - [] FrontEnd 
