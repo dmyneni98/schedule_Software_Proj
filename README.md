@@ -38,7 +38,7 @@ Delete the /node_modules directory and the package-lock.json file using the rm c
     '$ npm run start'
 
 4. Verify that react works 
-   go to http://http://localhost:3000/
+   go to http://localhost:3000
 
 
 4. Verify django test site works
