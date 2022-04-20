@@ -1,41 +1,51 @@
+# CS_4398_5394_Project
 
-<<<<<<< HEAD
+## Run Locally (Mac)
 
-# Running React Project on  
+### Pre-requisites
+
+* [Mongodb](https://www.mongodb.com/) 
+
+### Installation 
+
+1. Clone the repository
+2. create a new virtual environment to install all python dependencies
+    
+    `$ cd schedule_software_Proj`   
+    `$ python3 -m venv venv`  
+    `$ source venv/bin/activate`   
+    `$ pip install django`      
+    `$ pip install -r requirements.txt`
+
+3. Making sure react runs on your local machine 
 Delete the /node_modules directory and the package-lock.json file using the rm command:
 
-rm -rf node_modules
-rm -rf package-lock.json
-Install react-scripts using the following command:
+    '$ rm -rf node_modules'
+    '$ rm -rf package-lock.json'
 
-npm install react-scripts
-Install the dependencies using the following command:
+=> Install react-scripts using the following command:
 
-npm install
-Start the local server by running the following command:
+    '$ npm install react-scripts'
 
-To address all issues possible (including breaking changes), run:
-  npm audit fix --force
+=> Install the dependencies using the following command:
 
-npm run start
-=======
-- [] Work in Progress Presentation 
-    - [] Class Diagram 
-    - [] Test cases - Dhiraja 
-    - [] UI Dseigns - Lakshmi & Sudesh
-- [] Coding Parts 
-    - [] UI Design
-    - [] FrontEnd 
-        React JS 
-    - [] BackEnd 
-        Python 
-    - [] Database - 
-- [] Schedule 
-    - [] Work in Progress Presentations March 10th 
-    - [] UI Design March 11th 
-    - [] Front End March 21st 
-    - [] Back End April 8th 
-    - [] Database set up April 8th - Santosh AWS vs SQL 
-    - [] ML Model throughout - Tom 
-    - [] May 5th complete project due 
->>>>>>> 24f6c4c008be73e9edee81b67317286e0bf8e921
+    '$ npm install'
+
+# Note: To address all issues possible (including breaking changes), run:
+    '$ npm audit fix --force'
+
+=> Start the local server by running the following command:
+    '$ npm run start'
+
+4. Verify that react works 
+   go to http://http://localhost:3000/
+
+
+4. Verify django test site works
+
+    `$ python manage.py runserver`
+
+   go to http://localhost:8000
+   
+
+
