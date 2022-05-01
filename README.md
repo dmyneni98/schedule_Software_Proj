@@ -11,11 +11,15 @@
 1. Clone the repository
 2. create a new virtual environment to install all python dependencies
     
-    `$ cd schedule_software_Proj`   
+    `$ cd schedule_software_Proj` 
+    `$ cd backend` 
     `$ python3 -m venv venv`  
     `$ source venv/bin/activate`   
-    `$ pip install django`      
+    `$ pip install django djangorestframework`      
     `$ pip install -r requirements.txt`
+    `$ python3 manage.py makemigrations` // if we make any model changes, to commit them we need to run this command 
+    `$ python3 manage.py migrate` // migrate the change 
+    `$ python3 manage.py runserver` // to start the server 
 
 3. Making sure react runs on your local machine 
 Delete the /node_modules directory and the package-lock.json file using the rm command:
