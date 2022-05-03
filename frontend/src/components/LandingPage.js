@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import '../../App.css'
-import BackgroundImage from '../../assets/images/Timebg.jpg'
+import '../App.css'
+import BackgroundImage from '../assets/images/Timebg.jpg'
 
 export default function LandingPage() {
     return (
