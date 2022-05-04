@@ -7,6 +7,6 @@ it('ForgetPassword page render', () => {
   const {} = render(
     <MemoryRouter>
       <ForgetPasswordPage />
-     </MemoryRouter>
+     </MemoryRouter> 
   );
 });
