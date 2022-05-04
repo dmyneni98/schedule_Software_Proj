@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
  
-it('Login page render', () =>     {
+it('Login page render', () => {
   const {} = render(
     <MemoryRouter>
       <LoginPage />
