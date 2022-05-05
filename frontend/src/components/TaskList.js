@@ -1,65 +1,97 @@
 import React from 'react';
-import axios from 'axios';
+import { styled } from '@mui/material/styles';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+import Header from './Header'
+import Typography from '@mui/material/Typography';
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
-const state = {
-  tasks: []
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
+export default class TaskList extends React.Component{
+ 
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        items: [],
+        DataisLoaded: false
+    };
 }
-function componentDidMount() {
-  axios.get('http://127.0.0.1:8000/api/')
-      .then(res => {
+componentDidMount() {
+  fetch(
+        "http://127.0.0.1:8000/api")
+      .then((res) => res.json())
+      .then((json) => {
           this.setState({
-              tasks: res.data
+              items: json,
+              DataisLoaded: true
           });
       })
+      
 }
-export default function TaskList() {
-  return (
-    <TableContainer component={Paper}>
-    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-      <TableHead>
-        <TableRow>
-          <TableCell>Dessert (100g serving)</TableCell>
-          <TableCell align="right">Calories</TableCell>
-          <TableCell align="right">Fat&nbsp;(g)</TableCell>
-          <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-          <TableCell align="right">Protein&nbsp;(g)</TableCell>
+
+
+  render(){
+
+    const { DataisLoaded, items } = this.state;
+        if (!DataisLoaded) return <div>
+            <h1> Pleses wait some time.... </h1> </div> ;
+       
+    return (
+        <div className="text-center m-3-auto">
+        <TableContainer component={Paper} sx={{borderRadius: 5, border: 1,alignItem: 'center', borderRadius: '16px'}}>
+        <Table sx={{ minWidth: 650,ml:5,mt:2,pr:10, borderRadius: 5, border: 1,align: 'center', borderRadius: '16px'  }}  size="small" aria-label="a dense table">
+          <TableHead>
+          <TableRow>
+          <StyledTableCell>ID</StyledTableCell>
+          <StyledTableCell >Task Title</StyledTableCell>
+          <StyledTableCell >Task Type</StyledTableCell>
+          <StyledTableCell >Start Time</StyledTableCell>
+          <StyledTableCell >End Time</StyledTableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((row) => (
+        {items.map((row) => (
           <TableRow
-            key={row.name}
+            key={row.id}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
-              {row.name}
-            </TableCell>
-            <TableCell align="right">{row.calories}</TableCell>
-            <TableCell align="right">{row.fat}</TableCell>
-            <TableCell align="right">{row.carbs}</TableCell>
-            <TableCell align="right">{row.protein}</TableCell>
+            <TableCell component="th" scope="row">{row.id}</TableCell>
+            <TableCell >{row.title}</TableCell>
+            <TableCell >{row.tasktype}</TableCell>
+            <TableCell >{row.startDate}</TableCell>
+            <TableCell >{row.endDate}</TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
   </TableContainer>
+  </div>
+  
   )
+        }
 }
