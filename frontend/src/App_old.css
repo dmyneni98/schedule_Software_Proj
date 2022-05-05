@@ -1,30 +1,3 @@
-body {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  margin: 50px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 5em;
-}
-
-#slogan {
-  margin: 0;
-  font-size: 2em;
-}
-
-button {
-  background: black;
-  color: white;
-  border: 0;
-  font-size: 1.5em;
-  padding: 12px;
-  cursor: pointer;
-  margin-top: 30px;
-}
-
 /***    General     ***/
 * {
   box-sizing: border-box;
@@ -180,7 +153,6 @@ form span {
 body {
     margin: 0 auto;
     overflow: hidden;
-    vertical-align :middle;
 }
 
 .m-5-auto {

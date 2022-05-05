@@ -1,47 +1,58 @@
 import React, { useReducer } from "react";
-import { Button,  TextField, Paper, Typography } from "@mui/material";
-import { Link } from 'react-router-dom'
+import { Box,Button,  TextField, Paper, Typography } from "@mui/material";
+
 
 
 function AddTask() {
 
-    console.log("What is going on")
+    var nee= new Date()
+    nee.setTime(nee.getTime() -(5*60*60*1000))
+    var strd=nee.toISOString().substring(0,16)
     const [formInput, setFormInput] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         {
-            subject: "",
+            title: "",
             tasktype: "",
-            starttime:"",
-            endtime:""
+            startDate:"",
+            endDate:""
         }
       );
       const handleInput = evt => {
         const name = evt.target.name;
-        const newValue = evt.target.value;
+        const newValue = evt.target.value;  
         setFormInput({ [name]: newValue });
       };
       const handleSubmit = evt => {
         evt.preventDefault();
     
-        let data = { formInput };
-        console.log(JSON.stringify(data)) 
-    
-        fetch("http://127.0.0.1:8000/api/", {
+
+      
+      /*console.log(JSON.stringify(data)) 
+      */
+
+        var val = '{"title":"'+ formInput.title+'", "tasktype":"'+ formInput.tasktype+'","startDate":"'+ formInput.startDate+'","endDate":"'+ formInput.endDate+'"}'
+        
+        fetch("http://127.0.0.1:8000/api/create/", {
           method: "POST",
-          body: JSON.stringify(data),
+          body: val,
           headers: {
             "Content-Type": "application/json"
           }
-        })
+          })
           .then(response => response.json())
           .then(response => console.log("Success:", JSON.stringify(response)))
           .catch(error => console.error("Error:", error));
-      };
+          window.location.href="http://localhost:3000/tasklist"
+        };
     
-      console.log("Welc") 
+      /*console.log("Welc") */
     return (
-        <div>
-        <Paper >
+      <Box sx={{'& .MuiTextField-root': { m: 1, width: '25ch', }, left:300, alignItems: 'center' }} autoComplete="off" >
+      
+       <div>
+         <br/>
+         <br/>
+        <Paper sx={{  alignItems: 'center', textAlign: 'center', }}>
         <Typography variant="h5" component="h3">
           Task Creation Form
         </Typography>
@@ -50,9 +61,9 @@ function AddTask() {
           <TextField
             label="Task Name"
             id="margin-normal"
-            name="subject"
+            name="title"
             defaultValue={formInput.subject}
-            
+            required
             helperText="Enter Task Name"
             onChange={handleInput}
           />
@@ -68,8 +79,10 @@ function AddTask() {
 
 <TextField
         id="datetime-local"
-        name="starttime"
-        label="Next appointment"
+        name="startDate"
+        required
+        label="Appointment Start Time"
+        defaultValue={strd}
         type="datetime-local"
         onChange={handleInput}    
         sx={{ width: 250 }}
@@ -77,12 +90,25 @@ function AddTask() {
           shrink: true,
         }}
       />
-          <Button  type="submit" variant="contained" color="primary"   
-          > Submit
-          </Button>
+      <TextField
+        id="datetime-local"
+        required
+        name="endDate"
+        defaultValue={strd}
+        label="Appointment End Time"
+        type="datetime-local"
+        onChange={handleInput}    
+        sx={{ width: 250 }}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+        <br/>
+          <Button  type="submit" variant="contained" color="primary" > Submit</Button>
         </form>
         </Paper>
         </div>
+        </Box>
     )
 }
 
