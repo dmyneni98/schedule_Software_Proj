@@ -8,8 +8,7 @@ import ForgetPasswordPage from './components/ForgetPasswordPage'
 import HomePage from './components/HomePage'
 import TaskList from './components/TaskList'
 import Calendar from './components/Calendar'
-import AddTask from './components/AddTask'
-
+import AddTask from './components/AddTask
 
 const BaseRouter = () => (
     <div>
