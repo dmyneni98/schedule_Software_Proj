@@ -13,12 +13,14 @@
     
     `$ cd schedule_software_Proj` 
     `$ cd backend` 
-    `$ python3 -m venv venv`  
-    `$ source venv/bin/activate`   
-    `$ pip install django djangorestframework`      
-    `$ pip install -r requirements.txt`
+    `$ virtualenv env` 
+    `$ python3 -m env env`  
+    `$ source env/bin/activate`   
+    `$ pip3 install django djangorestframework` 
+    `$ python -m pip install django-cors-headers`      
     `$ python3 manage.py makemigrations` // if we make any model changes, to commit them we need to run this command 
     `$ python3 manage.py migrate` // migrate the change 
+    `$ python3 manage.py createsuperserver`
     `$ python3 manage.py runserver` // to start the server 
 
 3. Making sure react runs on your local machine 
